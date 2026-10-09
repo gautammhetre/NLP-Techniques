@@ -9,7 +9,7 @@ PDF-grounded Q&A with page citations, follow-up questions and multi-document com
 
 ```bash
 pip install -r requirements.txt
-cp .env.example .env            # then put your GROQ_API_KEY in .env
+cp .env.example .env            # then put your API key in .env (Groq, or set LLM_PROVIDER=openai)
 python scripts/ingest.py        # builds the vector DB from dataset/*.pdf
 streamlit run app.py
 ```

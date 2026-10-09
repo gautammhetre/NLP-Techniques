@@ -2,14 +2,14 @@
 import streamlit as st
 
 from agent import PDFInsightAgent
-from config import GROQ_API_KEY
+from config import API_KEY, API_KEY_NAME
 
 st.set_page_config(page_title="PDF Insight Agent", page_icon="📄", layout="wide")
 st.title("📄 PDF Insight Agent")
 
-if not GROQ_API_KEY:
-    st.error("GROQ_API_KEY not found. Create a file named `.env` (not `.env.example`) in this folder containing "
-             "`GROQ_API_KEY=your_key`, then restart the app.")
+if not API_KEY:
+    st.error(f"{API_KEY_NAME} not found. Create a file named `.env` (not `.env.example`) in this folder "
+             f"containing `{API_KEY_NAME}=your_key`, then restart the app.")
     st.stop()
 
 # Keep one agent (and its memory) per browser session

@@ -12,9 +12,18 @@ DATASET_DIR = BASE_DIR / "dataset"
 VECTOR_DB_DIR = BASE_DIR / "vector_store"
 COLLECTION_NAME = "pdf_chunks"
 
-# Groq LLM
+# LLM provider: "groq" (default) or "openai"
+LLM_PROVIDER = os.getenv("LLM_PROVIDER", "groq").lower()
+
 GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
 GROQ_MODEL = os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")
+
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
+OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
+
+# API key and variable name for the provider in use (used for the missing-key message)
+API_KEY = OPENAI_API_KEY if LLM_PROVIDER == "openai" else GROQ_API_KEY
+API_KEY_NAME = "OPENAI_API_KEY" if LLM_PROVIDER == "openai" else "GROQ_API_KEY"
 
 # Embeddings
 EMBEDDING_MODEL = "all-MiniLM-L6-v2"
