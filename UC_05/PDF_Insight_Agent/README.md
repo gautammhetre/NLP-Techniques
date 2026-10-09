@@ -14,6 +14,14 @@ python scripts/ingest.py        # builds the vector DB from dataset/*.pdf
 streamlit run app.py
 ```
 
+## Troubleshooting `pip install`
+
+- Use **Python 3.10 – 3.12** (64-bit). Check with `python --version`. Very new Python versions often lack prebuilt wheels for `torch`/`chromadb`.
+- Upgrade pip first: `python -m pip install --upgrade pip`, then `python -m pip install -r requirements.txt`.
+- Use a virtual environment: `python -m venv .venv`, then activate it (`.venv\\Scripts\\activate` on Windows, `source .venv/bin/activate` on Mac/Linux).
+- Make sure you run the command inside the `PDF_Insight_Agent` folder (where `requirements.txt` is).
+- "Microsoft Visual C++ 14.0 required" means an old `chromadb` is being installed; the upgrade step above fixes it.
+
 ## How to use
 
 - **One PDF selected** (sidebar): shows its category and 2-line insight; button for a detailed summary; questions are answered from that PDF.
