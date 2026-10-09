@@ -8,7 +8,8 @@ st.set_page_config(page_title="PDF Insight Agent", page_icon="📄", layout="wid
 st.title("📄 PDF Insight Agent")
 
 if not GROQ_API_KEY:
-    st.error("GROQ_API_KEY not found. Copy `.env.example` to `.env`, add your key, and restart.")
+    st.error("GROQ_API_KEY not found. Create a file named `.env` (not `.env.example`) in this folder containing "
+             "`GROQ_API_KEY=your_key`, then restart the app.")
     st.stop()
 
 # Keep one agent (and its memory) per browser session
